@@ -2,23 +2,37 @@ import React, { useState, useEffect } from 'react'
 import { useMoralis } from "react-moralis";
 import Logout from "./Logout";
 
-
-
-
-
-
 const Home = () => {
    const { isAuthenticated, user, authenticate,isAuthenticating } = useMoralis();
-    
+   const [current,setCurrent]=useState(null); 
+   
+useEffect(() => {
+     setCurrent(user);
+ 
+}, [user])
+ 
 
-    if (isAuthenticating) {
+    if (!isAuthenticated|| current==null || current===undefined ) {
+      <button onClick={() => authenticate()}>Authenticate</button>;
+      
+      
       return (
         <div>
           {/* <button onClick={() => authenticate()}>Authenticate</button> */}
-          PLEASE WAIT 
+          PLEASE WAIT
+          <button onClick={() => authenticate()}>Authenticate</button>;
+
+
+
         </div>
       );
     }
+
+    
+
+    else{
+
+      
   
    return (
      <div>
@@ -26,10 +40,16 @@ const Home = () => {
        <div>
          <Logout />
        </div>
-       <p>USERNAME : {user.get("username")}</p>
-       <p>ADDRESS : {user.attributes.ethAddress}</p>
+       <p>USERNAME : {current.get("username")}</p>
+       <p>ADDRESS : {current.attributes.ethAddress}</p>
      </div>
    );
 }
+}
  
 export default Home;
+  
+
+
+
+
