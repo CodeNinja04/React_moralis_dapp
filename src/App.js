@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Upload from "./components/UploadDataModal";
+import Role from "./components/Role";
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
       <Routes>
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
-        
         <Route path="upload" element={<Upload />} />
         <Route path="/" element={<Home />} />
+        <Route path="role" element ={<Role />} />
       </Routes>
     </BrowserRouter>
   </div>

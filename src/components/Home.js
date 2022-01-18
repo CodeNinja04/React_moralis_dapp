@@ -5,9 +5,11 @@ import Logout from "./Logout";
 const Home = () => {
    const { isAuthenticated, user, authenticate,isAuthenticating } = useMoralis();
    const [current,setCurrent]=useState(null); 
+   const [role,setRole]=useState();
    
 useEffect(() => {
      setCurrent(user);
+     console.log(current);
  
 }, [user])
  
@@ -28,9 +30,13 @@ useEffect(() => {
       );
     }
 
-    
+  else if (role === "artist"){
 
-    else{
+    <div>HELLO ARTIST</div>
+
+  }  
+
+  else{
 
       
   
