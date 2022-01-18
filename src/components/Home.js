@@ -47,7 +47,8 @@ useEffect(() => {
          <Logout />
        </div>
        <p>USERNAME : {current.get("username")}</p>
-       <p>ADDRESS : {current.attributes.ethAddress}</p>
+       <p>ADDRESS : {current.attributes.role}</p>
+       <p><img src={current.attributes.imagehash} height={200} width={200} /></p>
      </div>
    );
 }

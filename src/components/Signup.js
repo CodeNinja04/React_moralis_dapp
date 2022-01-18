@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   let navigate = useNavigate();
-  const { login, isAuthenticated, user } = useMoralis();
+  const {signup, isAuthenticated, user } = useMoralis();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +47,7 @@ const Signup = () => {
 
       <button
         onClick={() =>
-          login(username, password, email).then(navigate("/"))
+          signup(username, password, email).then(navigate("/role"))
         }
       >
         Sign up
